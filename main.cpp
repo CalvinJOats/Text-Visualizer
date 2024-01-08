@@ -3,7 +3,7 @@
 #endif
 
 #include <iostream>
-#include <ImageMagick-7/Magick++.h>
+#include <Magick++.h>
 #include "imgui.h"
 
 #include "imgui_impl_sdl2.h"

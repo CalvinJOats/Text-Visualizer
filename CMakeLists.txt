@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(Text_Visualizer main.cpp
         text_interpreter.cpp
         text_interpreter.h
+
         #   IMGUI Library Files
         imgui.h
         imgui.cpp
@@ -23,4 +24,18 @@ add_executable(Text_Visualizer main.cpp
         imgui_impl_opengl3_loader.h
 )
 
-target_link_libraries(Text_Visualizer SDL2 GL)
+include_directories("C:/Progra~1/ImageMagick-7.1.1-Q16-HDRI/include" "C:/Progra~1/SDL2")
+
+add_library(ImageMagickWin SHARED "C:/Progra~1/ImageMagick-7.1.1-Q16-HDRI/include/Magick++.h")
+add_library(SDL2 SHARED "C:/Progra~1/SDL2")
+
+#target_include_directories(ImageMagickWin PUBLIC include/Magick++)
+#target_include_directories(ImageMagickWin PUBLIC include/MagickCore)
+#target_include_directories(ImageMagickWin PUBLIC include/MagickWand)
+
+set_target_properties(ImageMagickWin PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(SDL2 PROPERTIES LINKER_LANGUAGE CXX)
+
+target_link_libraries(Text_Visualizer LINK_PUBLIC GL)
+target_link_libraries(Text_Visualizer LINK_PUBLIC ImageMagickWin)
+target_link_libraries(Text_Visualizer LINK_PUBLIC SDL2)
