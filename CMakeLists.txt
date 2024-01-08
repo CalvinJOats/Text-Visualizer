@@ -29,10 +29,6 @@ include_directories("C:/Progra~1/ImageMagick-7.1.1-Q16-HDRI/include" "C:/Progra~
 add_library(ImageMagickWin SHARED "C:/Progra~1/ImageMagick-7.1.1-Q16-HDRI/include/Magick++.h")
 add_library(SDL2 SHARED "C:/Progra~1/SDL2")
 
-#target_include_directories(ImageMagickWin PUBLIC include/Magick++)
-#target_include_directories(ImageMagickWin PUBLIC include/MagickCore)
-#target_include_directories(ImageMagickWin PUBLIC include/MagickWand)
-
 set_target_properties(ImageMagickWin PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(SDL2 PROPERTIES LINKER_LANGUAGE CXX)
 
